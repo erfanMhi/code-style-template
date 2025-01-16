@@ -3,6 +3,9 @@ name = "py-code-style-template"
 version = "0.1.0"
 description = "Python code style template"
 authors = ["Erfan Miahi <mhi.erfan1@gmail.com>"]
+packages = [
+    { include = "src" }
+]
 
 
 [tool.poetry.dependencies]
