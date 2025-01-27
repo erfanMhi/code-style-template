@@ -172,3 +172,19 @@ cython_debug/
 
 # poetry lock
 poetry.lock
+
+
+# Terraform
+*.tfvars
+.terraform*
+*.tfplan
+*.tfstate
+*.tfstate.backup
+*.tfvars.json
+*.tfvars.json.lock
+terraform.tfstate.d/
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
