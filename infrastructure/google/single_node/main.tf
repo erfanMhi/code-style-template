@@ -126,19 +126,7 @@ resource "google_compute_instance" "a100_vm" {
 
   metadata = {
     enable-oslogin = "TRUE"
-    startup-script = <<-EOT
-      #!/usr/bin/env bash
-      set -euxo pipefail
-
-      # Ensure we can reach GCS before the NVIDIA installer runs
-      until gsutil ls gs://nvidia-drivers-us-public/ >/dev/null 2>&1; do
-        echo "Waiting for Private Google Access / NAT ..."
-        sleep 5
-      done
-
-      # Trigger the interactive installer non‑interactively
-      /opt/deeplearning/install-driver.sh --quiet
-    EOT
+    startup-script = file("${path.module}/scripts/startup.sh")
   }
 
   tags = ["gpu-vm"]
